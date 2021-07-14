@@ -1,0 +1,23 @@
+---
+ - name: To show the usage of tags to skip particual tasks
+   hosts: localhost
+   gather_facts: false
+   tasks:
+   - debug:
+       msg: "This is first tasks to execute"
+     tags: 
+     - first
+     - never  #never means do not run this task by default
+   - debug:
+       msg: "This is second tasks to execute"
+     tags: 
+     - second
+     - always  #always means always execute this task
+   - debug:
+       msg: "This is third tasks to execute"
+     tags: 
+     - third
+   - debug:
+       msg: "This is fourth tasks to execute"
+     tags: 
+     - fourth

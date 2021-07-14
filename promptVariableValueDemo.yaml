@@ -1,0 +1,20 @@
+---
+ - name: Demo to prompt for variables values to enter
+   hosts: group1
+   vars:
+    x: 45
+    my_name: "ravi"
+   vars_prompt:
+    - name: user_name
+      prompt: Enter your username
+      private: no
+    - name: password
+      prompt: Enter your password
+      private: yes
+   gather_facts: false
+   tasks:
+   - debug: 
+      msg: "The username is: {{user_name}} and password is: {{password}}"
+
+
+

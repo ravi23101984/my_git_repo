@@ -1,0 +1,10 @@
+---
+ - name: Extra vars playbook 
+   hosts: localhost
+   gather_facts: false
+   become: true
+   tasks:
+   - name: installing and uninstalling different packages using extra vars 
+     yum: 
+       name: "{{pkg}}"
+       state: "{{req_state}}"

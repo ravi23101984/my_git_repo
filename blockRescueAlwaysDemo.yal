@@ -1,0 +1,19 @@
+---
+ - name: To show the demo of block rescue and always
+   hosts: localhost
+   tasks:
+   - block:
+     - name: This is first task inside block
+       command: "ls /home/ansibleadm/my_ansibles"
+       ignore_errors: yes      # we still can use this option on task level  
+     - command: "ls /home/ansibleadm/my_ansibles"
+       register: list_files
+     ignore_errors: yes # we can use this option at block level also.
+     rescue:
+     - debug:
+         msg: "This will run when we uncomment second command in above task"
+     always:
+     - debug:
+         msg: "This will execute always" 
+
+       

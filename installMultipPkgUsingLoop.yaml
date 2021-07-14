@@ -1,0 +1,16 @@
+---
+ - name: To show the usage of loop 
+   hosts: localhost
+   gather_facts: false
+   become: true
+   tasks:
+   - name: installing multiple packages
+     yum: 
+       name: "{{item}}"
+       state: "{{extraVar}}"
+     loop: 
+     - git
+     - httpd
+     - tomcat
+     - nginx
+      

@@ -1,0 +1,28 @@
+---
+ - name: Play for displaying arithmetic operations
+   hosts: localhost
+   gather_facts: false
+   vars_files:
+   - variables_values.json 
+   vars_prompt:  
+   - name: x
+     prompt: Please enter the value of x
+     private: no
+   - name: y
+     prompt: Please enter the value of y
+     private: no
+   vars:
+   - a: 50
+   - b: 40
+   - my_name: ravi
+   tasks:
+   - debug:
+       msg:
+       - "The value of x is: {{x}}"
+       - "The value of y is: {{y}}"
+       - "The value of {{x}} + {{y}} is: {{ x|int + y|int }}"
+       - "{{a}} - {{y}} = {{a - y|int}}"
+   - debug:
+       msg: 
+       - "The value of b is: {{b}} Hi {{my_name}}"
+       - "This will read p & q values from variables_values.json file: {{p|int + q[0]|int }}"

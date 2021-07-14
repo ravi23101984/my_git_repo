@@ -1,0 +1,13 @@
+---
+ - name: This is a demo playbook
+   hosts: group1
+   gather_facts: true
+   become: true
+   tasks:
+   - name: installing httpd package
+     yum: name=httpd state=absent
+     #become: yes
+   - name: installing wget package
+     yum: name=wget state=absent
+     #become: yes
+     

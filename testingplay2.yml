@@ -1,0 +1,37 @@
+---
+# - name: This playbook is to define variables
+#   hosts: group1
+#   vars: 
+#    x: 2
+#    y: "ravi"
+#    z: false
+#
+#   gather_facts: false 
+#   tasks:
+#   - name: Debug task for printing variables
+#     debug:
+#       msg:
+#        - "Value of x is: {{x}}"
+#        - "Value of y is: {{y}}"
+
+ - name: playbook to define scalar, sequence or list [] and map or dictionary {}
+   hosts: localhost
+   gather_facts: false
+   vars:
+    x: 34
+    #pkgs: ['vim','nano','httpd']
+    pkgs:
+    - 'vim'
+    - 'nano'
+    - 'httpd'
+    #web_servers: {'linux':'httpd', 'ubuntu': 'apache2'}
+    web_servers:
+      'linux': 'httpd'
+      'ubuntu': 'apache2'
+   tasks:
+   - debug: var=web_servers.get('linux')
+   - debug: var=pkgs[0]
+
+      
+ 
+  

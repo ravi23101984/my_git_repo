@@ -1,0 +1,11 @@
+---
+# tasks file for Database
+ - yum:
+     name: httpd
+     state: absent
+ - debug:
+     msg: "This is first tasks to execute"
+   tags:
+   - first
+   #- never  #never means do not run this task by default
+ 

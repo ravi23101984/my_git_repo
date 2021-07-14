@@ -1,0 +1,18 @@
+localhost
+10.128.173.20
+
+[group2]
+localhost
+10.128.173.20
+
+[aws]
+3.138.183.157
+18.216.125.24
+
+[all:vars]
+ansible_ssh_user=ansibleadm 
+ansible_ssh_password=ansibleadm
+
+[group1]
+localhost
+10.128.173.20 ansible_ssh_user=abc ansible_ssh_pass=Ravi@123!

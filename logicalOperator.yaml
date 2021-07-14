@@ -1,0 +1,14 @@
+---
+ - name: Demo to show use of logical or and and not operator
+   hosts: localhost
+   gather_facts: false
+   vars:
+    x: 5
+    y: 7
+    z: [4,5,6]
+   tasks:
+   - debug:
+       msg:
+       - "The value of x is: {{x}}, The value of y is: {{y}} and p list is: {{z}}"
+       - "x < y and y in z: {{x < y and y in z }}"
+       - "x < y or y in z: {{x < y or y in z }}" 

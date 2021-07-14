@@ -1,0 +1,13 @@
+---
+ - name: Simple play to launch ec2 instance
+   hosts: localhost
+   connection: local
+   gather_facts: no
+   tasks:
+   - name: Simple task to launch ec2 instance using defaults
+     ec2:
+      instance_type: t2.micro
+      image: ami-0d5eff06f840b45e9
+      aws_access_key: AKIA5WR2CJN3IWNYYIU7
+      aws_secret_key: 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
+      region: us-east-1

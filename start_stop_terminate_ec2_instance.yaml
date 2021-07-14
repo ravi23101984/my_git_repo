@@ -1,0 +1,13 @@
+---
+ - name: Sample play to start stop and terminate
+   hosts: localhost
+   connection: local
+   gather_facts: false
+   tasks:
+   - name: Sample task to start stop and terminate ec2 instance
+     ec2: 
+       instance_id: i-0b6ad8b3ba3dce09e
+       region: us-east-1
+       state: stopped
+       wait: yes
+      

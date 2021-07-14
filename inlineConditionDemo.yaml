@@ -1,0 +1,11 @@
+---
+ - name: inline condition usage
+   hosts: localhost
+   gather_facts: false
+   vars:
+    x: 6
+    y: 10
+    #larger: "{{ x if ( x>y ) else y }}"
+   tasks: 
+   - debug: 
+      msg: "The larger number of {{x}} and {{y}} is: {{ x if (x>y) else y }}"

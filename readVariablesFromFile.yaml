@@ -1,0 +1,12 @@
+---
+ - hosts: localhost
+   vars_files: 
+    - variables_values.yaml
+    - variables_values.json
+   tasks:
+   - debug: 
+      msg:
+      - "The value of P: {{p}}"
+      - "The value of Q: {{q}}"
+      - "the value of x: {{x}}"
+

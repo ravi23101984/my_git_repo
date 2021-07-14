@@ -1,0 +1,41 @@
+---
+# - name: Demo to show how handler works
+#   hosts: localhost
+#   gather_facts: false
+#   become: yes
+#   tasks:
+#   - yum:
+#       name: httpd
+#       state: absent
+#    # register: out
+#   #- name: starting httpd service if first tasks finishes successfully
+#   #  service:
+#   #    name: start httpd
+#   #    state: started
+#    # when: out.changed == True
+#     notify:
+#     - start httpd 
+#   handlers:
+#   - name: start httpd
+#     service:
+#       name: httpd
+#       state: started   
+ - name: Demo to show handlers
+   hosts: localhost
+   gather_facts: false
+   become: yes
+   tasks:
+   - yum:
+       name: httpd
+       state: present
+     notify:
+       start httpd
+   handlers:
+   - name: start httpd
+     service:
+       name: httpd
+       state: started
+       
+
+     
+

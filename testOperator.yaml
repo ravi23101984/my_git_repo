@@ -1,0 +1,22 @@
+---
+ - name: Demo of test operator
+   hosts: localhost
+   gather_facts: false
+   vars:
+    x: 40
+    myname: 'ansible'
+    my_path: '/home/ansibleadm/my_ansible/testOperator.yaml'
+   tasks:
+   - debug:
+      msg:
+      - "x is defined: {{ x is defined }}"
+      - "x is defined: {{ x is undefined }}"
+      - "myname is lower: {{ myname is lower }}"
+      - "my name is string: {{ myname is string }}"
+      - "x is divisible by 2: {{ x is divisibleby 2 }}"
+      - "x is even: {{ x is even }}"
+      - "x is number: {{x is number }}"
+      - "my_path is file: {{ my_path is file }}"
+      - "my_path exists: {{ my_path is exists }}"
+
+ 

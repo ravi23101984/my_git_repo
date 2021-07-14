@@ -1,0 +1,21 @@
+---
+ - name: Sample play to launch instance with sg and tags.
+   hosts: localhost
+   connection: local
+   gather_facts: false
+   tasks:
+   - name: Sample task to lanuch ec2 instance with sg and tags
+     ec2: 
+       instance_type: t2.micro
+       image: ami-0d5eff06f840b45e9
+       count: 1
+       key_name: "ec2 tutorial"
+       region: us-east-1
+       wait: yes
+       #group: my-first-rds-sg If you need to assign single sg 
+       group: [ 'my-first-rds-sg', 'default' ]
+       instance_tags:
+         name: ansible_ec2instance
+         Env: dev 
+       
+    

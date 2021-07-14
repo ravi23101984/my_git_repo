@@ -1,0 +1,8 @@
+---
+ - name: hostvars and inventory_hostname variables
+   hosts: localhost
+   tasks:
+   - debug:  var=inventory_hostname
+   - debug: var=hostvars[inventory_hostname]
+   #- debug: var=hostvars
+      
